@@ -1,82 +1,20 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-     <script type='text/javascript' src='https://www.x3dom.org/download/1.8.1/x3dom.js'> </script> 
-     <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/release/x3dom.css'></link> 
-    <title>タイトル</title>
-  </head>
-  <body>
-    <h1>タイトル</h1>
-    <p>
-      作品の説明<br>
-      <br>
-      視点移動<br>
-      左ボタンドラッグ：見回し(Rotate)<br>
-      真ん中ボタンドラッグ または Ctrl+左ボタンドラッグ：平行移動(Pan)<br>
-      右ボタンドラッグ または ホイール：ズーム(Zoom)<br>
-      aキー：オブジェクトを全部見る(Show all)<br>
-      uキー：視点の上下を正す(Upright)<br>
-      rキー：視点のリセット(Reset)<br>
-    </p>
-    <div class="buttons group">
-        <input type="button" value="ヘッドライト ON" onclick="document.getElementById('navi').setAttribute('headlight','true');"/>
-        <input type="button" value="ヘッドライト OFF" onclick="document.getElementById('navi').setAttribute('headlight','false');"/>
-        <input type="button" value="デバッグ ON" onclick="document.getElementById('x3d').runtime.debug(true);"/>
-        <input type="button" value="デバッグ OFF" onclick="document.getElementById('x3d').runtime.debug(false);"/>
-        <BR>
-        <input type="button" value="前の視点" onclick="document.getElementById('x3d').runtime.prevView();"/>
-        <input type="button" value="次の視点" onclick="document.getElementById('x3d').runtime.nextView();"/>
-        <br>
-        透視投影：
-        <input type="button" value="前から(+Zから)" onclick="document.getElementById('front_view').setAttribute('set_bind','true');"/>
-        <input type="button" value="後から(-Zから)" onclick="document.getElementById('back_view').setAttribute('set_bind','true');"/>
-        <input type="button" value="上から(+Yから)" onclick="document.getElementById('top_view').setAttribute('set_bind','true');"/>
-        <input type="button" value="下から(-Yから)" onclick="document.getElementById('bottom_view').setAttribute('set_bind','true');"/>
-        <input type="button" value="右から(+Xから)" onclick="document.getElementById('right_view').setAttribute('set_bind','true');"/>
-        <input type="button" value="左から(-Xから)" onclick="document.getElementById('left_view').setAttribute('set_bind','true');"/>
-        <br>
-        平行投影：
-        <input type="button" value="前から(+Zから)" onclick="document.getElementById('ortho_front_view').setAttribute('set_bind','true');"/>
-        <input type="button" value="後から(-Zから)" onclick="document.getElementById('ortho_back_view').setAttribute('set_bind','true');"/>
-        <input type="button" value="上から(+Yから)" onclick="document.getElementById('ortho_top_view').setAttribute('set_bind','true');"/>
-        <input type="button" value="下から(-Yから)" onclick="document.getElementById('ortho_bottom_view').setAttribute('set_bind','true');"/>
-        <input type="button" value="右から(+Xから)" onclick="document.getElementById('ortho_right_view').setAttribute('set_bind','true');"/>
-        <input type="button" value="左から(-Xから)" onclick="document.getElementById('ortho_left_view').setAttribute('set_bind','true');"/>
-        <br>
-        新規視点：
-    </div>
-    <div id="str">Viewpoint</div>
-    <x3d id="x3d" style="width:80vw; height:60vw; margin:auto;" showLog="false" showStat="false">
-    
-      <scene id="scene">
-        <!-- ヘッドライトの設定 -->
-        <navigationInfo id="navi" headlight="false"></navigationInfo>
-
-        <!-- 太陽光源の設定（複数可） -->
-        <!-- direction 光の方向 -->
-        <!-- ambientIntensity 環境光の明るさ -->
-        <directionalLight direction="-1 -1 -1" color="1 1 1" ambientIntensity="0.2"></directionalLight>
-
-        <!-- 背景の指定 -->
-        <background skyColor="0.2 0.2 0.4"></background>
-
-        <!-- 視点の設定（複数可） -->
-        <viewpoint id="front_view" description="front" position="0 0 10" orientation="0 1 0 0"></viewpoint>
-        <viewpoint id="back_view" description="back" position="0 0 -10" orientation="0 1 0 3.14"></viewpoint>
-        <viewpoint id="top_view" description="top" position="0 10 0" orientation="1 0 0 -1.57"></viewpoint>
-        <viewpoint id="bottom_view" description="bottom" position="0 -10 0" orientation="1 0 0 1.57"></viewpoint>
-        <viewpoint id="right_view" description="right" position="10 0 0" orientation="0 1 0 1.57"></viewpoint>
-        <viewpoint id="left_view" description="left" position="-10 0 0" orientation="0 1 0 -1.57"></viewpoint>
-
-        <OrthoViewpoint id="ortho_front_view" description="ortho_front" position="0 0 10" orientation="0 1 0 0" fieldOfView="[-5,-5,5,5]"></OrthoViewpoint>
-        <OrthoViewpoint id="ortho_back_view" description="ortho_back" position="0 0 -10" orientation="0 1 0 3.14" fieldOfView="[-5,-5,5,5]"></OrthoViewpoint>
-        <OrthoViewpoint id="ortho_top_view" description="ortho_top" position="0 10 0" orientation="1 0 0 -1.57" fieldOfView="[-5,-5,5,5]"></OrthoViewpoint>
-        <OrthoViewpoint id="ortho_bottom_view" description="ortho_bottom" position="0 -10 0" orientation="1 0 0 1.57" fieldOfView="[-5,-5,5,5]"></OrthoViewpoint>
-        <OrthoViewpoint id="ortho_right_view" description="ortho_right" position="10 0 0" orientation="0 1 0 1.57" fieldOfView="[-5,-5,5,5]"></OrthoViewpoint>
-        <OrthoViewpoint id="ortho_left_view" description="ortho_left" position="-10 0 0" orientation="0 1 0 -1.57" fieldOfView="[-5,-5,5,5]"></OrthoViewpoint>
-
-        <!-- オブジェクト -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+	<head>
+		<meta name="filename" content="tinkani.x3d"></meta>
+		<meta name="created" content="2026-04-24 21:11:01"></meta>
+		<meta name="generator" content="Blender 5.0.1"></meta>
+		<meta name="translator" content="Web3D X3D/VRML2 format v2.5.1"></meta>
+	</head>
+	<Scene>
+		<NavigationInfo headlight="true"
+		                visibilityLimit="0.0"
+		                type='"EXAMINE", "ANY"'
+		                avatarSize="0.25, 1.75, 0.75"></NavigationInfo>
+		<Background DEF="WO_World"
+		            groundColor="0.051 0.051 0.051"
+		            skyColor="0.051 0.051 0.051"></Background>
 		<Transform DEF="kani_body_TRANSFORM"
 		           translation="0.000000 0.000000 0.000000"
 		           scale="1.000000 1.000000 1.000000"
@@ -115,57 +53,5 @@
 				</Group>
 			</Transform>
 		</Transform>
-
-        <transform scale="1 1 1" rotation="0 0 1 0" translation="0 -2 0">
-          <shape>
-            <box size="10 0.1 10"></box>
-            <appearance>
-              <material diffuseColor="1 1 1" specularColor=".5 .5 .5" shiness="0.2" transparency="0"></material>
-            </appearance>
-          </shape>
-        </transform>
-
-        <transform scale="0.5 0.5 0.5" translation="0 2 0">
-          <shape>
-            <text string='"2022.4.1 00A0000" "Kazumasa YAMAZAWA"'>
-              <fontstyle family="TYPEWRITER" size="1" style="BOLD"></fontstyle>
-            </text>
-            <appearance>
-              <material diffuseColor="1 0 1"></material>
-            </appearance>
-          </shape>
-        </transform>
-
-      </scene>
-    </x3d>
-    <script>
-        var pos;
-        var rot;
-        var viewFunc = function(evt) {
-        	pos = evt.position;
-        	rot = evt.orientation;
-            text = '&lt;viewpoint id="name_view" description="name" position="' + 
-                                Math.round(pos.x*1000000.0)/1000000.0 +' '+Math.round(pos.y*1000000.0)/1000000.0+' '+Math.round(pos.z*1000000.0)/1000000.0 +
-								'" orientation="' + Math.round(rot[0].x*1000000.0)/1000000.0+' '+Math.round(rot[0].y*1000000.0)/1000000.0+' '+Math.round(rot[0].z*1000000.0)/1000000.0+' '+Math.round(rot[1]*1000000.0)/1000000.0+'"&gt;&lt;/viewpoint&gt;';
-            document.getElementById("str").innerHTML=text;
-        };
-
-        function addIt() {
-            var scene = document.getElementById('scene');
-            for (var i = 0; i < scene.children.length; i++) {
-                if (scene.children[i].nodeName == "VIEWPOINT") {
-                    //x3dom.debug.logInfo(scene.children[i].nodeName);
-                    scene.children[i].addEventListener('viewpointChanged', viewFunc, false);
-                }
-            }
-        }
-
-        document.onload = addIt;
-
-        function showViewpoint() {
-			x3dom.debug.logInfo('position: ' + pos.x+' '+pos.y+' '+pos.z +'\n' +
-								'orientation: ' + rot[0].x+' '+rot[0].y+' '+rot[0].z+' '+rot[1]);
-        }
-    </script>
-  </body>
-</html>
+	</Scene>
+</X3D>
