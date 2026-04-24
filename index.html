@@ -77,18 +77,32 @@
         <OrthoViewpoint id="ortho_left_view" description="ortho_left" position="-10 0 0" orientation="0 1 0 -1.57" fieldOfView="[-5,-5,5,5]"></OrthoViewpoint>
 
         <!-- オブジェクト -->
-        <transform scale="2 2 2" rotation="0 0 1 0" translation="0 0 0" render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" center="0,0,0" scaleorientation="0,0,0,0">
-          <shape render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" ispickable="true">
-            <indexedfaceset coordIndex="2 0 1 -1 " texCoordIndex="0 1 2 -1 " solid="true" ccw="true" usegeocache="true" lit="true" colorpervertex="true" normalpervertex="true" normalupdatemode="fast" convex="true" normalindex="" colorindex="">
-              <coordinate point="1.000000 1.000000 0.000000 -1.000000 1.000000 0.000000 0.000000 -1.000000 0.000000 "></coordinate>
-              <texturecoordinate point="1.0000 0.0000 1.0000 1.0000 0.0000 1.0000 "></texturecoordinate>
-            </indexedfaceset>
-            <appearance sorttype="auto" alphaclipthreshold="0.1">
-              <imagetexture url="無題.png" repeats="true" repeatt="true" scale="true" hidechildren="true"></imagetexture>
-            </appearance>
-          </shape>
-        </transform>
-
+				<Group DEF="group_ME_立方体_005">
+					<Shape>
+						<Appearance>
+							<ImageTexture DEF="IM_無題"
+							              url='"無題.png"'
+							              />
+							<Material DEF="MA_マテリアル_001"
+							          diffuseColor="0.800 0.800 0.800"
+							          specularColor="0.401 0.401 0.401"
+							          emissiveColor="0.000 0.000 0.000"
+							          ambientIntensity="0.000"
+							          shininess="0.500"
+							          transparency="0.000"
+							          />
+						</Appearance>
+						<IndexedFaceSet solid="false"
+						                texCoordIndex="0 1 2 -1 "
+						                coordIndex="2 0 1 -1 "
+						                >
+							<Coordinate DEF="coords_ME_立方体_005"
+							            point="1.000000 1.000000 0.000000 -1.000000 1.000000 0.000000 0.000000 -1.000000 0.000000 "
+							            />
+							<TextureCoordinate point="1.0000 0.0000 1.0000 1.0000 0.0000 1.0000 " />
+						</IndexedFaceSet>
+					</Shape>
+				</Group>
 
         <transform scale="1 1 1" rotation="0 0 1 0" translation="0 -2 0">
           <shape>
