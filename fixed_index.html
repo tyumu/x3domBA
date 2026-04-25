@@ -97,12 +97,22 @@
 					</Shape>
 				</Group>
 			</Transform>
+
+  #cycleInterval="2"は2秒かけてアニメーションを1周させるという意味
   <timesensor DEF="ts" cycleInterval="2" loop="true" enabled="true" first="true"></timesensor>
+  #TimeSensorからの信号を受け取って 今、アニメーションの全体の何%のところにいるか を計算する。「key」が時間（0%の時、50%の時、100%の時）、「keyValue」がその時の値（0、1、0）を示す。多分MMDで言うと補完曲線的なやつ。
   <scalarinterpolator DEF="si" key="0 0.5 1" keyValue="0 1 0" interpolation="LINEAR"></scalarinterpolator>
+  #メッシュを構成するすべての頂点のXYZ座標が、アニメーションの各フレームごとにベタ書きされている
   <coordinateinterpolator DEF='ci' key='0.0000 0.0333 0.0667 0.1000 0.1333 0.1667 0.2000 0.2333 0.2667 0.3000 0.3333 0.3667 0.4000 0.4333 0.4667 0.5000 0.5333 0.5667 0.6000 0.6333 0.6667 0.7000 0.7333 0.7667 0.8000 0.8333 0.8667 0.9000 0.9333 0.9667 1.0000' keyValue='-1.0000 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 -0.9935 -0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 -0.9745 -0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 -0.9440 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 -0.9028 -0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 -0.8519 -0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 -0.7920 -0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 -0.7241 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 -0.6492 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 -0.5680 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 -0.4815 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 -0.3905 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 -0.2960 -0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 -0.1988 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 -0.0999 -0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 -0.0000 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 0.0999 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 0.1988 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 0.2960 -0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 0.3905 -0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 0.4815 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 0.5680 -0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 0.6492 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 0.7241 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 0.7920 -0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 0.8519 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 0.9028 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 0.9440 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 0.9745 -0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 0.9935 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000 1.0000 0.0000 1.0000 -1.0000 0.0000 -1.0000 1.0000 0.0000 -1.0000' ></coordinateinterpolator>
-  <route fromNode="ci" fromField="value_changed" toNode="coords_ME_平面" toField="point"></route>
-  <route fromNode="si" fromField="value_changed" toNode="ci" toField="set_fraction"></route>
+
+  #fromNode="ts"で timesensor DEF="ts"を指定、toNode="si"で scalarinterpolator DEF="si"を指定、fromField="fraction_changed"で timesensor DEF="ts"のfraction_changedフィールドを指定、toField="set_fraction"で scalarinterpolator DEF="si"のset_fractionフィールドを指定。
+  #つまり、timesensor DEF="ts"のfraction_changedフィールドの値が変化したときに、scalarinterpolator DEF="si"のset_fractionフィールドにその値が送られる。
   <route fromNode="ts" fromField="fraction_changed" toNode="si" toField="set_fraction"></route>
+  #同様に、scalarinterpolator DEF="si"のvalue_changedフィールドの値が変化したときに、coordinateinterpolator DEF='ci'のset_fractionフィールドにその値が送られるという意味。
+  <route fromNode="si" fromField="value_changed" toNode="ci" toField="set_fraction"></route>
+  #同様に、coordinateinterpolator DEF='ci'のvalue_changedフィールドの値が変化したときに、Coordinate DEF="coords_ME_平面"のpointフィールドにその値が送られるという意味。
+  #つまり時計（ts） → 補間器（si） → 座標データ（ci） → メッシュ本体 という順番で、毎フレームごとに座標データを更新している。
+  <route fromNode="ci" fromField="value_changed" toNode="coords_ME_平面" toField="point"></route>
 <matrixtransform render="true" bboxCenter="0,0,0" bboxSize="-1,-1,-1" matrix="1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1"><inline render="false" bboxCenter="0,0,0" bboxSize="-1,-1,-1" url="" load="true" nameSpaceName=""></inline></matrixtransform><matrixtransform render="true" bboxCenter="0,0,0" bboxSize="-1,-1,-1" matrix="1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1"><inline render="false" bboxCenter="0,0,0" bboxSize="-1,-1,-1" url="" load="true" nameSpaceName=""></inline></matrixtransform>
 
 
