@@ -1,9 +1,8 @@
 import bpy
 
 # x3d用に<coordinateinterpolatorを書き出すスクリプト
-#bledner上で実行する
 def export_x3d_interpolator():
-    # アクティブなオブジェクトを取得
+    # アクティブなオブジェクトを取得します
     obj = bpy.context.active_object
     if obj is None or obj.type != 'MESH':
         print("メッシュオブジェクトを選択してから実行してください。")
@@ -18,8 +17,8 @@ def export_x3d_interpolator():
     
     total_frames = end_frame - start_frame + 1
 
-    # .blendファイルと同じ場所に「x3d_yukari_export.txt」として保存
-    output_path = bpy.path.abspath("//x3d_yukari_export.txt")
+    # .blendファイルと同じ場所に「x3d_coordinateinterpolator_export.txt」として保存
+    output_path = bpy.path.abspath("//x3d_coordinateinterpolator_export.txt")
 
     keys = []
     key_values = []
