@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+	<head>
+		<meta name="filename" content="sankaku.x3d"></meta>
+		<meta name="created" content="2026-04-25 11:52:23"></meta>
+		<meta name="generator" content="Blender 5.0.1"></meta>
+		<meta name="translator" content="Web3D X3D/VRML2 format v2.5.1"></meta>
+	</head>
+	<Scene>
+		<NavigationInfo headlight="true"
+		                visibilityLimit="0.0"
+		                type='"EXAMINE", "ANY"'
+		                avatarSize="0.25, 1.75, 0.75"></NavigationInfo>
+		<Background DEF="WO_World"
+		            groundColor="0.051 0.051 0.051"
+		            skyColor="0.051 0.051 0.051"></Background>
+		<Transform DEF="平面_TRANSFORM"
+		           translation="0.000000 0.000000 0.000000"
+		           scale="1.000000 1.000000 1.000000"
+		           rotation="-1.000000 0.000000 0.000000 1.570796"
+		           >
+			<Transform DEF="平面_ifs_TRANSFORM"
+			           translation="0.000000 0.000000 0.000000"
+			           scale="1.000000 1.000000 1.000000"
+			           rotation="0.000000 1.000000 0.000000 0.000000"
+			           >
+				<Group DEF="group_ME_平面">
+					<Shape>
+						<Appearance>
+						</Appearance>
+						<IndexedFaceSet solid="false"
+						                texCoordIndex="0 1 2 -1 "
+						                coordIndex="0 2 1 -1 "
+						                >
+							<Coordinate DEF="coords_ME_平面"
+							            point="0.000000 -1.000000 0.000000 -1.000000 1.000000 0.000000 1.000000 1.000000 0.000000 "></Coordinate>
+							<TextureCoordinate point="1.0000 0.0000 1.0000 1.0000 0.0000 1.0000 "></TextureCoordinate>
+						</IndexedFaceSet>
+					</Shape>
+				</Group>
+			</Transform>
+		</Transform>
+	</Scene>
+</X3D>
