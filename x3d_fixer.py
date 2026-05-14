@@ -1,7 +1,7 @@
 import sys
 import re
 import os
-
+# X3Dファイル内の自己閉じタグを通常の開始タグと終了タグに変換するスクリプト
 def main():
     if len(sys.argv) < 2:
         print("python x3d_fixer.py <ファイル名> で指定してください。")
