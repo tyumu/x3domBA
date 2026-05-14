@@ -1,6 +1,6 @@
 import bpy
 
-# x3d用に<coordinateinterpolatorを書き出すスクリプト
+# x3d用に<coordinateinterpolatorを書き出すスクリプト blender内で使用します
 def export_x3d_interpolator():
     # アクティブなオブジェクトを取得します
     obj = bpy.context.active_object
